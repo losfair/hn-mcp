@@ -508,6 +508,7 @@ async function startHttpServer() {
   // SSE endpoint for MCP transport using official SDK
   app.get('/sse', validateOrigin, authMiddleware, async (req, res) => {
     const transport = new SSEServerTransport('/message', res);
+    console.log(`request headers:`, req.headers);
 
     // Create MCP server
     const server = new Server(
